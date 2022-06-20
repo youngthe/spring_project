@@ -2,9 +2,7 @@ package com.free.u4;
 
 import org.junit.jupiter.api.Test;
 
-import java.sql.Connection;
-import java.sql.Driver;
-import java.sql.DriverManager;
+import java.sql.*;
 
 public class JDBCTest {
     static {
@@ -18,8 +16,14 @@ public class JDBCTest {
     @Test
     public void testConnection() {
         try{
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root", "test");
-            System.out.println(con);
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306","root", "test");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("show databases");
+
+            while (rs.next()) {
+                System.out.println(rs.getString(1));
+            }
+
         }catch(Exception e){
             System.out.println("error");
         }
