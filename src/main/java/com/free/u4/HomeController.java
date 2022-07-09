@@ -22,7 +22,7 @@ public class HomeController {
     public String view(Model model){
         ArrayList<Member> arraylist;
         JDBCConnection jdbc = new JDBCConnection();
-        arraylist = jdbc.DBConnection();
+        arraylist = jdbc.getMember();
         model.addAttribute("list", arraylist);
         return "view";
     }

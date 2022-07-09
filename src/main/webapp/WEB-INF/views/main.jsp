@@ -9,13 +9,12 @@
 <table>
     <tr>
         <td>
-            <input type="button" onclick="location.href='/view'" value="view Page">
+            <input type="button" onclick="location.href='/view'" value="이름 확인">
         </td>
     </tr>
-
     <tr>
         <td>
-            <input type="button" onclick="location.href='/addMember'" value="addMember Page">
+            <input type="button" onclick="location.href='/addMember'" value="이름 추가하기">
         </td>
     </tr>
 </table>

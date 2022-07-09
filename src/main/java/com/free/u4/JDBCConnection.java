@@ -23,14 +23,13 @@ public class JDBCConnection {
 //        return jdbcTemplate.queryForList("select name from Member");
 //    }
 
-    @Test
-    public ArrayList DBConnection() {
+
+    public ArrayList getMember() {
         ArrayList<Member> arrayList = new ArrayList<Member>();
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root", "test");
 //            Connection con = dataSource.getConnection();
             System.out.println(con);
-
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from Member");
             while (rs.next()) {
