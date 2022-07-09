@@ -4,29 +4,28 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-        <!-- 추가된 내용 -->
-<!--        <context-param>-->
-<!--            <param-name>contextConfigLocation</param-name>-->
-<!--            <param-value>classpath:spring/*Context.xml</param-value>-->
-<!--        </context-param>-->
+<!--    &lt;!&ndash; 추가된 내용 &ndash;&gt;-->
+<!--    <context-param>-->
+<!--        <param-name>contextConfigLocation</param-name>-->
+<!--        <param-value>classpath:spring/*Context.xml</param-value>-->
+<!--    </context-param>-->
 
-        <listener>
-            <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-        </listener>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
-        <servlet>
-            <servlet-name>dispatcher</servlet-name>
-            <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-            <init-param>
-                <param-name>contextConfigLocation</param-name>
-                <param-value>/WEB-INF/spring/dispatcher-servlet.xml</param-value>
-            </init-param>
-            <load-on-startup>1</load-on-startup>
-        </servlet>
-        <servlet-mapping>
-            <servlet-name>dispatcher</servlet-name>
-            <url-pattern>/</url-pattern>
-        </servlet-mapping>
-        <!-- //추가된 내용 -->
-
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/spring/dispatcher-servlet.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <!-- //추가된 내용 -->
 </web-app>

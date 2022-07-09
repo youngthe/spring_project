@@ -7,124 +7,103 @@
     <groupId>com.free.u4</groupId>
     <artifactId>u4</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
     <properties>
-        <!--프로젝트 코드 인코딩 설정 -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-        <!-- 스프링 프레임워크 버전 -->
-        <org.springframework-version>5.1.9.RELEASE</org.springframework-version>
-
-        <!-- JPA, 하이버네이트 버전 -->
-        <hibernate.version>4.3.10.Final</hibernate.version>
-
-        <!-- 데이터베이스 버전 -->
-        <tomcat-jdbc.version>7.0.57</tomcat-jdbc.version>
-        <h2db.version>1.4.187</h2db.version>
-
-        <!-- JSP, WEB 버전 -->
-        <jsp.version>2.2</jsp.version>
-        <jstl.version>1.2</jstl.version>
-        <servlet.version>3.0.1</servlet.version>
-
-        <!-- 로그 버전 -->
-        <logback.version>1.1.1</logback.version>
-        <slf4j.version>1.7.6</slf4j.version>
-
-        <!-- 테스트 버전 -->
-        <junit.version>4.12</junit.version>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <spring.version>5.2.0.RELEASE</spring.version>
+        <hibernate.version>5.2.11.Final</hibernate.version>
+        <hibernate.validator>5.4.1.Final</hibernate.validator>
+        <c3p0.version>0.9.5.2</c3p0.version>
+        <jstl.version>1.2.1</jstl.version>
+        <tld.version>1.1.2</tld.version>
+        <servlets.version>3.1.0</servlets.version>
+        <jsp.version>2.3.1</jsp.version>
+        <hsqldb.version>1.8.0.10</hsqldb.version>
     </properties>
-
-
     <dependencies>
-        <!-- 스프링 MVC -->
+        <!-- Spring MVC Dependency -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${org.springframework-version}</version>
+            <version>${spring.version}</version>
         </dependency>
 
-        <!-- 스프링 ORM -->
+        <!-- Spring ORM -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <version>${org.springframework-version}</version>
+            <version>${spring.version}</version>
         </dependency>
-        <!-- JPA, 하이버네이트 -->
+
+        <!-- Hibernate Core -->
         <dependency>
             <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
+            <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
 
-        <!-- H2 데이터베이스 -->
+        <!-- Hibernate-C3P0 Integration -->
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>${h2db.version}</version>
-            <scope>runtime</scope>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>${hibernate.version}</version>
         </dependency>
 
-        <!--커넥션 풀-->
+        <!-- c3p0 -->
         <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-jdbc</artifactId>
-            <version>${tomcat-jdbc.version}</version>
-            <scope>compile</scope>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>${c3p0.version}</version>
         </dependency>
 
-        <!-- web -->
+        <!-- Hibernate Validator -->
         <dependency>
-           <groupId>javax.servlet</groupId>
-           <artifactId>jstl</artifactId>
-           <version>${jstl.version}</version>
-           <scope>runtime</scope>
-       </dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate.validator}</version>
+        </dependency>
+
+        <!-- JSTL Dependency -->
+        <dependency>
+            <groupId>javax.servlet.jsp.jstl</groupId>
+            <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>${tld.version}</version>
+        </dependency>
+
+        <!-- Servlet Dependency -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.version}</version>
+            <version>${servlets.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- JSP Dependency -->
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>javax.servlet.jsp-api</artifactId>
-            <version>2.3.1</version>
+            <version>${jsp.version}</version>
             <scope>provided</scope>
         </dependency>
 
-        <!-- 로깅 SLF4J & LogBack -->
+        <!-- HSQL Dependency -->
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
-            <scope>runtime</scope>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>${hsqldb.version}</version>
         </dependency>
 
-        <!-- 테스트 -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${org.springframework-version}</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
+            <version>4.13.2</version>
             <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.29</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -132,30 +111,54 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.29</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.2.5.RELEASE</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+
+
+
     </dependencies>
 
-
     <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
+                <version>3.5.1</version>
                 <configuration>
-
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
                     <path>/</path>
-                    <uriEncoding>UTF-8</uriEncoding>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 </project>

@@ -4,31 +4,32 @@ import com.free.u4.domain.Member;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import javax.inject.Inject;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class JDBCTest {
-    private JdbcTemplate jdbcTemplate;
+public class JDBCConnection {
 
-    public void setDataSource (DataSource dataSource){
-        this.jdbcTemplate = new JdbcTemplate((dataSource));
-    }
+    @Inject
+    private DataSource dataSource;
 
-    public List<Map<String, Object>> getdbc(){
-        return jdbcTemplate.queryForList("select name from Member");
-    }
+//    public void setDataSource(DataSource datasource) {
+//        this.dataSource = datasource;
+//    }
+//    public List<Map<String, Object>> getdbc(){
+//        return jdbcTemplate.queryForList("select name from Member");
+//    }
 
     @Test
-    public void testConnection() {
-
+    public ArrayList DBConnection() {
+        ArrayList<Member> arrayList = new ArrayList<Member>();
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root", "test");
-
-
-            ArrayList<Member> arrayList = new ArrayList<Member>();
+//            Connection con = dataSource.getConnection();
+            System.out.println(con);
 
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from Member");
@@ -38,35 +39,27 @@ public class JDBCTest {
                 temp.setName(rs.getString(2));
                 arrayList.add(temp);
             }
-
-            System.out.println(arrayList.get(2));
+            con.close();
+            return arrayList;
         }catch(Exception e){
             System.out.println("error");
         }
+        return arrayList;
     }
 
-    public ArrayList<Member> getdb(){
-        ArrayList<Member> arrayList = new ArrayList<Member>();
+    public void insertName(String name) {
 
         try{
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root", "test");
             System.out.println(con);
+            String sql = "insert into MEMBER (name) values ('"+name+"')";
+            System.out.println(sql);
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from Member");
-            while (rs.next()) {
-                Member temp = new Member();
-                temp.setId(rs.getLong(1));
-                temp.setName(rs.getString(2));
-//                System.out.println(temp);
-                arrayList.add(temp);
-            }
-
-            System.out.println(arrayList.get(2));
-            return arrayList;
+            stmt.executeUpdate(sql);
+            con.close();
+            System.out.println("success");
         }catch(Exception e){
             System.out.println("error");
-
         }
-        return arrayList;
     }
 }
