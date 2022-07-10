@@ -1,4 +1,4 @@
-package com.free.u4;
+package com.free.u4.jdbc;
 
 import com.free.u4.domain.Member;
 import org.junit.jupiter.api.Test;
@@ -12,16 +12,6 @@ import java.util.List;
 import java.util.Map;
 
 public class JDBCConnection {
-
-    @Inject
-    private DataSource dataSource;
-
-//    public void setDataSource(DataSource datasource) {
-//        this.dataSource = datasource;
-//    }
-//    public List<Map<String, Object>> getdbc(){
-//        return jdbcTemplate.queryForList("select name from Member");
-//    }
 
 
     public ArrayList getMember() {
@@ -52,6 +42,21 @@ public class JDBCConnection {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root", "test");
             System.out.println(con);
             String sql = "insert into MEMBER (name) values ('"+name+"')";
+            System.out.println(sql);
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate(sql);
+            con.close();
+            System.out.println("success");
+        }catch(Exception e){
+            System.out.println("error");
+        }
+    }
+
+    public void deleteID(String id){
+
+        try{
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root", "test");
+            String sql = "delete from MEMBER where id = '"+id+"'";
             System.out.println(sql);
             Statement stmt = con.createStatement();
             stmt.executeUpdate(sql);

@@ -14,7 +14,12 @@
     </tr>
     <tr>
         <td>
-            <input type="button" onclick="location.href='/addMember'" value="이름 추가하기">
+            <input type="button" onclick="location.href='/addMember'" value="이름 추가">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" onclick="location.href='/deleteMember'" value="ID 삭제">
         </td>
     </tr>
 </table>

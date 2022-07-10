@@ -6,11 +6,18 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86ebff3d-bf88-40c5-9822-c311df042d5b" name="Default Changelist" comment="">
+    <list default="true" id="86ebff3d-bf88-40c5-9822-c311df042d5b" name="Default Changelist" comment="modify : button name and class name">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/controller/MemberController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/deleteMember.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/JDBCConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/JDBCConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/u4_Web_exploded/WEB-INF/classes/com/free/u4/HomeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/JDBCConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/jdbc/JDBCConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/domain/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/addMember.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/addMember.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/view.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/free/u4/HomeController.class" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +71,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\spring_project\src\main\webapp\WEB-INF\views\member" />
       <recent name="C:\Users\whdud\IdeaProjects\u4\src\main\webapp\WEB-INF\views" />
       <recent name="C:\Users\whdud\IdeaProjects\u4\src\main\webapp\WEB-INF" />
     </key>
@@ -85,12 +93,12 @@
       <module name="spring_project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.free.u4.*" />
+          <option name="PATTERN" value="com.free.u4.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.free.u4" />
-      <option name="MAIN_CLASS_NAME" value="com.free.u4.JDBCConnection" />
+      <option name="PACKAGE_NAME" value="com.free.u4.jdbc" />
+      <option name="MAIN_CLASS_NAME" value="com.free.u4.jdbc.JDBCConnection" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -193,7 +201,8 @@
       <workItem from="1657284678688" duration="591000" />
       <workItem from="1657285325491" duration="3853000" />
       <workItem from="1657325955496" duration="4568000" />
-      <workItem from="1657350407975" duration="8878000" />
+      <workItem from="1657350407975" duration="9206000" />
+      <workItem from="1657412638132" duration="3587000" />
     </task>
     <task id="LOCAL-00001" summary="dbConnect">
       <created>1657357009220</created>
@@ -202,11 +211,28 @@
       <option name="project" value="LOCAL" />
       <updated>1657357009220</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="modify : button name and class name">
+      <created>1657359343978</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657359343979</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -223,6 +249,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="dbConnect" />
-    <option name="LAST_COMMIT_MESSAGE" value="dbConnect" />
+    <MESSAGE value="modify : button name and class name" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify : button name and class name" />
   </component>
 </project>

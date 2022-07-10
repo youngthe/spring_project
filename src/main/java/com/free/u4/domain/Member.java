@@ -1,12 +1,12 @@
 package com.free.u4.domain;
 
 import javax.persistence.*;
+
 @Entity
 public class Member {
 
     @Id
     private Long id;
-
     private String name;
 
     public Long getId(){
@@ -23,13 +23,5 @@ public class Member {
         this.name = name;
     }
 
-//
-//    @Override
-//    public String toString(){
-//        return "Member{" +
-//                "id=" + id +
-//                ", name='" + name + '\'' +
-//                '}';
-//    }
 }
 
