@@ -27,7 +27,6 @@
             <tr>
                 <td>삭제 할 ID</td><td><input type = "text" name = "id" id = "id"></td>
             </tr>
-
             <tr>
                 <td><input type = "button" value="돌아가기" onclick="location.href='/'"></td>
                 <td><input type = "submit" value = "삭제하기"></td>

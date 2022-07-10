@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="u4:Web exploded" />
+      <artifact name="spring_project:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86ebff3d-bf88-40c5-9822-c311df042d5b" name="Default Changelist" comment="modify : button name and class name">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/controller/MemberController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/deleteMember.jsp" afterDir="false" />
+    <list default="true" id="86ebff3d-bf88-40c5-9822-c311df042d5b" name="Default Changelist" comment="modify : we can use korean language and refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/u4_Web_exploded/WEB-INF/classes/com/free/u4/HomeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/HomeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/JDBCConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/jdbc/JDBCConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/domain/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/addMember.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/addMember.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/main.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/view.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/view.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/free/u4/HomeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/u4_Web_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/u4_Web_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/deleteMember.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/deleteMember.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +81,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.test_spring">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.62">
     <configuration name="JDBCConnection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="spring_project" />
       <extension name="coverage">
@@ -104,18 +97,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test_spring" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.62" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="1.8">
-      <option name="COMMON_VM_ARGUMENTS" value="-Duser.language=en" />
+    <configuration name="Tomcat 9.0.62" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.62" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="COMMON_VM_ARGUMENTS" value="-Duser.language=en -Dfile.encoding=utf-8" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="u4:Web exploded">
+        <artifact name="spring_project:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="/" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_u4" />
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_spring_project_2" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -123,7 +116,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="51838" />
+        <option name="DEBUG_PORT" value="58987" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -173,10 +166,14 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="u4:Web exploded" />
+          <artifact name="spring_project:war exploded" />
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.JDBCConnection" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.62" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.JDBCConnection" />
@@ -202,7 +199,7 @@
       <workItem from="1657285325491" duration="3853000" />
       <workItem from="1657325955496" duration="4568000" />
       <workItem from="1657350407975" duration="9206000" />
-      <workItem from="1657412638132" duration="3587000" />
+      <workItem from="1657412638132" duration="14680000" />
     </task>
     <task id="LOCAL-00001" summary="dbConnect">
       <created>1657357009220</created>
@@ -218,7 +215,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657359343979</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add : deleteID">
+      <created>1657416436019</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1657416436019</updated>
+    </task>
+    <task id="LOCAL-00004" summary="modify : we can use korean language and refactoring">
+      <created>1657424891728</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657424891728</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,6 +261,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="dbConnect" />
     <MESSAGE value="modify : button name and class name" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify : button name and class name" />
+    <MESSAGE value="add : deleteID" />
+    <MESSAGE value="modify : we can use korean language and refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify : we can use korean language and refactoring" />
   </component>
 </project>
