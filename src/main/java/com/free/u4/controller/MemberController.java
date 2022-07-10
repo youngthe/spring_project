@@ -16,11 +16,15 @@ public class MemberController {
 
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String choice(Model model){
+
+        return "choice";
+    }
+    @RequestMapping(value = "/member", method = RequestMethod.GET)
     public String home(Model model){
 
         return "member/main";
     }
-
 
     @RequestMapping(value = "/view", method = RequestMethod.GET)
     public String view(Model model){
@@ -51,7 +55,9 @@ public class MemberController {
     @RequestMapping(value = "/deleteMember")
     public String deleteMember(HttpServletRequest httpServletRequest){
         if(httpServletRequest.getMethod().equals("GET")){
+
             return "member/deleteMember";
+
         }else{
             String id = httpServletRequest.getParameter("id");
             System.out.println(id);
