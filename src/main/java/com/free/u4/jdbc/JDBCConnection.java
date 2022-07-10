@@ -6,64 +6,87 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
+import javax.swing.plaf.nimbus.State;
+import javax.validation.constraints.Null;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class JDBCConnection {
+    
+    public Connection dbcon(){
+        Connection con = null;
+        try{
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root", "test");
+            return con;
+        }catch(Exception e){
+            System.out.println("db connection error");
+            return con;
+        }
+    }
 
+    public boolean SqlDeleteAndInsert(String sql){
+
+        try{
+            Connection con = dbcon();
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate(sql);
+            con.close();
+            return true;
+        }catch(Exception e){
+            System.out.println("Sql Delete or Insert error");
+        }
+        return false;
+    }
 
     public ArrayList getMember() {
+
         ArrayList<Member> arrayList = new ArrayList<Member>();
+
         try{
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root", "test");
-//            Connection con = dataSource.getConnection();
-            System.out.println(con);
+            Connection con = dbcon();
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("select * from Member");
+
             while (rs.next()) {
                 Member temp = new Member();
                 temp.setId(rs.getLong(1));
                 temp.setName(rs.getString(2));
                 arrayList.add(temp);
             }
+
             con.close();
             return arrayList;
-        }catch(Exception e){
-            System.out.println("error");
+
+        } catch (Exception e){
+            System.out.println("select member error");
         }
         return arrayList;
     }
 
     public void insertName(String name) {
 
-        try{
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root", "test");
-            System.out.println(con);
-            String sql = "insert into MEMBER (name) values ('"+name+"')";
-            System.out.println(sql);
-            Statement stmt = con.createStatement();
-            stmt.executeUpdate(sql);
-            con.close();
-            System.out.println("success");
-        }catch(Exception e){
-            System.out.println("error");
-        }
+        String sql = "insert into MEMBER (name) values ('"+name+"')";
+
+        boolean result = SqlDeleteAndInsert(sql);
+        if(result)
+            System.out.println("insert success");
+        else
+            System.out.println("sql error");
+
     }
 
     public void deleteID(String id){
 
-        try{
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root", "test");
             String sql = "delete from MEMBER where id = '"+id+"'";
-            System.out.println(sql);
-            Statement stmt = con.createStatement();
-            stmt.executeUpdate(sql);
-            con.close();
-            System.out.println("success");
-        }catch(Exception e){
-            System.out.println("error");
-        }
+
+            boolean result = SqlDeleteAndInsert(sql);
+            if(result)
+                System.out.println("delete success");
+            else
+                System.out.println("delete error");
+
     }
+
 }

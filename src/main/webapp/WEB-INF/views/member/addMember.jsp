@@ -4,14 +4,25 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    function Checkform(){
+        if(form.name.value == ""){
+            form.name.focus();
+            alert("이름을 입력하세요 ! ");
+            return false;
+        }else
+            return true;
+    }
+</script>
 
-    <form action="/addMember" method="post">
+    <form name = "form" action="/addMember" method="post" onsubmit= "return Checkform()">
         <table>
             <tr>
-                <td><input type="text" width="100" name="name"></td>
                 <td>이름</td>
+                <td><input type="text" width="100" name="name" id="name"></td>
             </tr>
             <tr>
+                <td><input type="button" value="돌아가기" onclick="location.href='/'"></td>
                 <td>
                     <input type="submit" value="이름 추가하기">
                 </td>
