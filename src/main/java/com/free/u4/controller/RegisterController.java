@@ -2,6 +2,7 @@ package com.free.u4.controller;
 
 import com.free.u4.jdbc.RegisterJDBC;
 import com.free.u4.utils.ScriptUtils;
+import org.hibernate.hql.spi.id.cte.CteValuesListBulkIdStrategy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,7 +47,7 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "/main")
-    public String session(HttpServletRequest httpServletRequest){
+    public String main(HttpServletRequest httpServletRequest){
 
         if(httpServletRequest.getMethod().equals("POST")) {
             HttpSession session = httpServletRequest.getSession();
@@ -55,5 +56,26 @@ public class RegisterController {
         }
 
         return "Register/main";
+    }
+
+    @RequestMapping(value = "/register")
+    public String register(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException{
+
+        if(httpServletRequest.getMethod().equals("POST"))
+        {
+            String id = httpServletRequest.getParameter("id");
+            String pw = httpServletRequest.getParameter("pw1");
+            System.out.println(id);
+            System.out.println(pw);
+            RegisterJDBC register = new RegisterJDBC();
+            boolean result = register.Register(id, pw);
+            if(result){
+                ScriptUtils.alert(httpServletResponse, "회원가입이 되었습니다.");
+                return "Register/login";
+            }
+            else
+                ScriptUtils.alert(httpServletResponse, "아이디가 이미 존재합니다.");
+        }
+        return "Register/register";
     }
 }

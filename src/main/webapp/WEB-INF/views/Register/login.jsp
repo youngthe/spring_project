@@ -22,6 +22,7 @@
             alert("비밀번호를 입력하세요 ! ");
             return false;
         }else{
+            alert("회원가입이 되었습니다 ! ");
             return true;
         }
     }
@@ -36,6 +37,9 @@
             </tr>
             <tr>
                 <td colspan="2"><input type="submit" value="로그인"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" value="회원가입" onclick="location.href='register'"></td>
             </tr>
         </table>
 

@@ -7,15 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86ebff3d-bf88-40c5-9822-c311df042d5b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/controller/RegisterController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/domain/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/jdbc/RegisterJDBC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/utils/ScriptUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Register/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Register/main.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/choice.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Register/register.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/jdbc/RegisterJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/jdbc/RegisterJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Register/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Register/login.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -207,7 +203,9 @@
       <workItem from="1657350407975" duration="9206000" />
       <workItem from="1657412638132" duration="20931000" />
       <workItem from="1657434785401" duration="1912000" />
-      <workItem from="1657452799776" duration="4114000" />
+      <workItem from="1657452799776" duration="7718000" />
+      <workItem from="1657499188678" duration="2091000" />
+      <workItem from="1657535182295" duration="1468000" />
     </task>
     <task id="LOCAL-00001" summary="dbConnect">
       <created>1657357009220</created>
@@ -244,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657428084030</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add : login and logout">
+      <created>1657457005975</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657457005975</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,6 +284,7 @@
     <MESSAGE value="add : deleteID" />
     <MESSAGE value="modify : we can use korean language and refactoring" />
     <MESSAGE value="finish" />
-    <option name="LAST_COMMIT_MESSAGE" value="finish" />
+    <MESSAGE value="add : login and logout" />
+    <option name="LAST_COMMIT_MESSAGE" value="add : login and logout" />
   </component>
 </project>
