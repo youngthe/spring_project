@@ -16,7 +16,10 @@
         <td>로그인 완료</td>
     </tr>
     <tr>
-        <td>${id}</td>
+        <td><input type="button" onclick="location.href='/user_info'"  value="관리자 페이지"></td>
+    </tr>
+    <tr>
+        <td><input type="button" onclick="location.href='/community'"  value="게시판 페이지"></td>
     </tr>
 </table>
 <form action="/main" method = post>

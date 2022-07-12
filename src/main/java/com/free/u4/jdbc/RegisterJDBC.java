@@ -1,12 +1,12 @@
 package com.free.u4.jdbc;
 
 
+import com.free.u4.domain.User;
 import com.free.u4.utils.ScriptUtils;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import javax.xml.transform.Result;
+import java.sql.*;
+import java.util.ArrayList;
 
 public class RegisterJDBC {
 
@@ -76,4 +76,47 @@ public class RegisterJDBC {
             return false;
         }
     }
+
+    public ArrayList<User> user_info(){
+        ArrayList<User> users = new ArrayList<User>();
+        String sql = "select num, id from user";
+        try{
+            Connection con = dbcon();
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                User user = new User();
+                user.setNum(rs.getInt(1));
+                user.setId(rs.getString(2));
+                users.add(user);
+            }
+            con.close();
+            System.out.println("return user_info success");
+            return users;
+
+        }catch(Exception e){
+            System.out.println("user_info error");
+            System.out.println(e);
+        }
+
+        return users;
+    }
+
+    public boolean user_delete(int num){
+        String sql = "delete from USER where num = '"+num+"'";
+        try{
+            Connection con = dbcon();
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate(sql);
+            con.close();
+            System.out.println("success delete");
+            return true;
+        }catch(Exception e){
+            System.out.println("error delete");
+            return false;
+        }
+
+    }
+
+
 }

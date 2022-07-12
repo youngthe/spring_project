@@ -1,16 +1,18 @@
 package com.free.u4.controller;
 
+import com.free.u4.domain.User;
 import com.free.u4.jdbc.RegisterJDBC;
 import com.free.u4.utils.ScriptUtils;
-import org.hibernate.hql.spi.id.cte.CteValuesListBulkIdStrategy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @Controller
 public class RegisterController {
@@ -78,4 +80,39 @@ public class RegisterController {
         }
         return "Register/register";
     }
+
+    @RequestMapping(value = "/user_info")
+    public String user_info(Model model, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException{
+        HttpSession session = httpServletRequest.getSession();
+
+        if(session.getAttribute("user").equals("admin")){
+            ArrayList<User> arrayList;
+            RegisterJDBC jdbc = new RegisterJDBC();
+            arrayList = jdbc.user_info();
+            model.addAttribute("users", arrayList);
+            return "Register/user_info";
+        }else{
+            ScriptUtils.alert(httpServletResponse, "관리자 계정이 아닙니다.");
+            return "Register/main";
+        }
+
+    }
+
+    @RequestMapping(value = "/user_delete/{user_num}")
+    public String user_delete(Model model, @PathVariable int user_num,
+                              HttpServletResponse httpServletResponse, HttpServletRequest httpServletRequest) throws IOException{
+
+        HttpSession session = httpServletRequest.getSession();
+        RegisterJDBC jdbc = new RegisterJDBC();
+        boolean result = jdbc.user_delete(user_num);
+        if(result){
+            ScriptUtils.alert(httpServletResponse, "계정이 삭제되었습니다.");
+        }
+        else{
+            ScriptUtils.alert(httpServletResponse, "계정 삭제 에러");
+        }
+
+        return "Register/user_info";
+    }
+
 }
