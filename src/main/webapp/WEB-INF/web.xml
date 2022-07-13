@@ -34,6 +34,8 @@
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
+        <url-pattern>*.css</url-pattern>
+
     </servlet-mapping>
     <!-- //추가된 내용 -->
 </web-app>

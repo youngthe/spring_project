@@ -7,11 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86ebff3d-bf88-40c5-9822-c311df042d5b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/controller/CommunityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/controller/CommunityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/jdbc/CommunityJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/jdbc/CommunityJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/utils/ScriptUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/utils/ScriptUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Community/community_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Community/community_detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Community/community.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Community/community.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,11 +66,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\spring_project\src\main\webapp\resources" />
+      <recent name="C:\spring_project\src\main\webapp\WEB-INF\resources\css" />
       <recent name="C:\spring_project\src\main\webapp\WEB-INF\views" />
       <recent name="C:\spring_project\src\main\webapp\WEB-INF\views\Register\community" />
       <recent name="C:\spring_project\src\main\webapp\WEB-INF\views\member" />
-      <recent name="C:\Users\whdud\IdeaProjects\u4\src\main\webapp\WEB-INF\views" />
-      <recent name="C:\Users\whdud\IdeaProjects\u4\src\main\webapp\WEB-INF" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -208,7 +208,7 @@
       <workItem from="1657452799776" duration="7718000" />
       <workItem from="1657499188678" duration="2091000" />
       <workItem from="1657535182295" duration="18835000" />
-      <workItem from="1657689679344" duration="12883000" />
+      <workItem from="1657689679344" duration="15505000" />
     </task>
     <task id="LOCAL-00001" summary="dbConnect">
       <created>1657357009220</created>
@@ -294,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657697216808</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="modify : refactoring and add redirection Utility">
+      <created>1657709995857</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1657709995858</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
