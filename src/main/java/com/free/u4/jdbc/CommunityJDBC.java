@@ -31,8 +31,8 @@ public class CommunityJDBC {
         return false;
     }
 
-    public boolean Create_Community(String title, String content){
-        String sql = "insert into COMMUNITY ( title, content) value ('"+title+"', '"+content+"')";
+    public boolean Create_Community(String title, String content, String writer){
+        String sql = "insert into COMMUNITY ( title, content, writer) value ('"+title+"', '"+content+"' , '"+writer+"')";
         boolean result = SqlDeleteAndInsert(sql);
         return result;
     }
@@ -49,6 +49,7 @@ public class CommunityJDBC {
                 community.setID(rs.getInt(1));
                 community.setTitle(rs.getString(2));
                 community.setContent(rs.getString(3));
+                community.setWriter(rs.getString(4));
                 arraylist.add(community);
             }
             return arraylist;

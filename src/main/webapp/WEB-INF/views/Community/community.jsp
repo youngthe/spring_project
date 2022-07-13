@@ -11,9 +11,10 @@
 <head>
     <title>커뮤니티 페이지</title>
     <table>
+        <tr><td>번호</td><td>제목</td><td>작성자</td></tr>
         <c:forEach var="list" items="${community_list}" varStatus="status">
             <tr>
-                <td>${list.id}</td><td><a href="/community/detail/${list.id}">${list.title}</a></td>
+                <td>${list.id}</td><td><a href="/community/detail/${list.id}">${list.title}</a></td><td>${list.writer}</td>
             </tr>
         </c:forEach>
         <tr>

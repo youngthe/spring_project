@@ -8,6 +8,15 @@ public class Community {
     private int id;
     private String title;
     private String content;
+    private String writer;
+
+    public String getWriter() {
+        return writer;
+    }
+
+    public void setWriter(String writer) {
+        this.writer = writer;
+    }
 
     public int getId() {
         return id;

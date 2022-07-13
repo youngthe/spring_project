@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -34,9 +35,10 @@ public class CommunityController {
         if(httpServletRequest.getMethod().equals("POST")){
             String title = httpServletRequest.getParameter("title");
             String content = httpServletRequest.getParameter("content");
-
+            HttpSession session = httpServletRequest.getSession();
+            String writer = (String)session.getAttribute("user");
             CommunityJDBC jdbc = new CommunityJDBC();
-            boolean result = jdbc.Create_Community(title, content);
+            boolean result = jdbc.Create_Community(title, content, writer);
             if(result)
                 ScriptUtils.alert(httpServletResponse, "글 작성이 완료되었습니다.");
             else

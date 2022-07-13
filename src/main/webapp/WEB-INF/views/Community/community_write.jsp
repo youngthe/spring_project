@@ -25,7 +25,7 @@
             <td><textarea name="content" id="content" rows="15" cols="33"></textarea></td>
         </tr>
         <tr>
-            <td><input type="submit" value = "작성 완료"></td>
+            <td><input type="button" value="돌아가기" onclick="location.href='/community'"></td><td><input type="submit" value = "작성완료"></td>
         </tr>
     </form>
 </table>
