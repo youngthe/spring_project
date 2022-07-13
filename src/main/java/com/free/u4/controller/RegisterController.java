@@ -25,7 +25,6 @@ public class RegisterController {
 
         HttpSession session = httpServletRequest.getSession();
         String sessionCheck = (String)session.getAttribute("user");
-        System.out.println(sessionCheck);
 
         if(sessionCheck != null ){
             model.addAttribute("user", sessionCheck);

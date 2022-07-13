@@ -92,6 +92,22 @@ public class CommunityJDBC {
         stmt.executeUpdate(sql);
         con.close();
         return true;
+    }
 
+    public String Community_Writer(int id){
+        String sql = "select writer from COMMUNITY where id='"+id+"'";
+        String writer = null;
+
+        try{
+            Connection con = dbcon();
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            if(rs.next()){
+                writer = rs.getString(1);
+            }
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        return writer;
     }
 }

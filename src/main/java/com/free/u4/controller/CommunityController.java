@@ -61,11 +61,18 @@ public class CommunityController {
     }
 
     @RequestMapping(value = "/community/modify/{id}")
-    public String community_modify(@PathVariable int id, Model model, HttpServletRequest httpServletRequest) throws SQLException{
+    public String community_modify(@PathVariable int id, Model model, HttpServletRequest httpServletRequest,
+                                   HttpServletResponse httpServletResponse) throws SQLException, IOException {
 
         CommunityJDBC jdbc = new CommunityJDBC();
         Community community = jdbc.Detail_Community(id);
         model.addAttribute("community", community);
+        HttpSession session = httpServletRequest.getSession();
+
+        if(!jdbc.Community_Writer(id).equals(session.getAttribute("user"))){
+            ScriptUtils.alert(httpServletResponse, "수정권한이 없습니다");
+            return "";
+        }
 
         if(httpServletRequest.getMethod().equals("POST")){
             String title = httpServletRequest.getParameter("title");

@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
     <input type="button" value="member" onclick="location.href='member'">
-    <input type="button" value="register" onclick="location.href='login'">
+    <input type="button" value="community" onclick="location.href='login'">
 <body>
 
 </body>

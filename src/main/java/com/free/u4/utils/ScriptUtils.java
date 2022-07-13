@@ -14,7 +14,7 @@ public class ScriptUtils {
     public static void alert(HttpServletResponse response, String alertText) throws IOException{
         init(response);
         PrintWriter out = response.getWriter();
-        out.println("<script>alert('" + alertText + "');</script>");
+        out.println("<script>alert('" + alertText + "');  history.back();</script>");
         out.flush();
     }
 }
