@@ -37,7 +37,7 @@ public class CommunityJDBC {
         return result;
     }
 
-    public ArrayList<Community> View_Community(){
+    public ArrayList<Community> view_Community(){
         ArrayList<Community> arraylist = new ArrayList<>();
         String sql = "select * from COMMUNITY";
         try{
@@ -61,7 +61,7 @@ public class CommunityJDBC {
         return arraylist;
     }
 
-    public Community Detail_Community(int id) {
+    public Community detail_Community(int id) {
         String sql = "select * from COMMUNITY where id ='"+id+"'";
         Community community = new Community();
 
@@ -84,7 +84,7 @@ public class CommunityJDBC {
         return community;
     }
 
-    public boolean Modify_Community(int id, String title, String content) throws SQLException{
+    public boolean modify_Community(int id, String title, String content) throws SQLException{
         String sql = "update community set title='"+title+"', content= '"+content+"' where id="+id;
 
         Connection con = dbcon();
@@ -94,7 +94,7 @@ public class CommunityJDBC {
         return true;
     }
 
-    public String Community_Writer(int id){
+    public String get_Writer(int id){
         String sql = "select writer from COMMUNITY where id='"+id+"'";
         String writer = null;
 
@@ -109,5 +109,13 @@ public class CommunityJDBC {
             System.out.println(e);
         }
         return writer;
+    }
+
+    public boolean delete_community(int id) throws SQLException{
+        String sql = "delete from community where id = '"+id+"'";
+        Connection con = dbcon();
+        Statement stmt = con.createStatement();
+        stmt.executeUpdate(sql);
+        return true;
     }
 }

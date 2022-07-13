@@ -14,6 +14,19 @@ public class ScriptUtils {
     public static void alert(HttpServletResponse response, String alertText) throws IOException{
         init(response);
         PrintWriter out = response.getWriter();
+        out.println("<script>alert('" + alertText + "');</script>");
+        out.flush();
+    }
+
+    public static void alert_location(HttpServletResponse response, String alertText, String location) throws IOException{
+        init(response);
+        PrintWriter out = response.getWriter();
+        out.println("<script>alert('" + alertText + "'); location.href='"+location+"'; </script>");
+        out.flush();
+    }
+    public static void alert_back(HttpServletResponse response, String alertText) throws IOException{
+        init(response);
+        PrintWriter out = response.getWriter();
         out.println("<script>alert('" + alertText + "');  history.back();</script>");
         out.flush();
     }

@@ -20,7 +20,7 @@
         <tr><td>
             <input type="button" value="수정하기" onclick="location.href='/community/modify/${community.id}'">
         </td><td>
-            <input type="button" value="삭제하기" onclick="location.href='#'">
+            <input type="button" value="삭제하기" onclick="location.href='/community/delete/${community.id}'">
         </td></tr>
         <tr><td>
             <input type="button" value="돌아가기" onclick="location.href='/community/'">

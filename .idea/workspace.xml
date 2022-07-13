@@ -9,10 +9,9 @@
     <list default="true" id="86ebff3d-bf88-40c5-9822-c311df042d5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/controller/CommunityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/controller/CommunityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/controller/RegisterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/jdbc/CommunityJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/jdbc/CommunityJDBC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/utils/ScriptUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/utils/ScriptUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/choice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/choice.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Community/community_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Community/community_detail.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -209,7 +208,7 @@
       <workItem from="1657452799776" duration="7718000" />
       <workItem from="1657499188678" duration="2091000" />
       <workItem from="1657535182295" duration="18835000" />
-      <workItem from="1657689679344" duration="7241000" />
+      <workItem from="1657689679344" duration="12883000" />
     </task>
     <task id="LOCAL-00001" summary="dbConnect">
       <created>1657357009220</created>
@@ -288,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657694660204</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add : Check Permission in community modify">
+      <created>1657697216808</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1657697216808</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,6 +335,8 @@
     <MESSAGE value="add : community function" />
     <MESSAGE value="add : add community writer" />
     <MESSAGE value="add : community modify" />
-    <option name="LAST_COMMIT_MESSAGE" value="add : community modify" />
+    <MESSAGE value="add : Check Permission in community modify" />
+    <MESSAGE value="modify : refactoring and add redirection Utility" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify : refactoring and add redirection Utility" />
   </component>
 </project>
