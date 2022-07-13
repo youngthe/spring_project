@@ -59,4 +59,20 @@ public class CommunityController {
 
         return "Community/community_detail";
     }
+
+    @RequestMapping(value = "/community/modify/{id}")
+    public String community_modify(@PathVariable int id, Model model, HttpServletRequest httpServletRequest) throws SQLException{
+
+        CommunityJDBC jdbc = new CommunityJDBC();
+        Community community = jdbc.Detail_Community(id);
+        model.addAttribute("community", community);
+
+        if(httpServletRequest.getMethod().equals("POST")){
+            String title = httpServletRequest.getParameter("title");
+            String content = httpServletRequest.getParameter("content");
+            jdbc.Modify_Community(id, title, content);
+            return "redirect:/community/detail/"+id;
+        }
+        return "Community/community_modify";
+    }
 }

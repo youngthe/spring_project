@@ -83,4 +83,15 @@ public class CommunityJDBC {
         }
         return community;
     }
+
+    public boolean Modify_Community(int id, String title, String content) throws SQLException{
+        String sql = "update community set title='"+title+"', content= '"+content+"' where id="+id;
+
+        Connection con = dbcon();
+        Statement stmt = con.createStatement();
+        stmt.executeUpdate(sql);
+        con.close();
+        return true;
+
+    }
 }

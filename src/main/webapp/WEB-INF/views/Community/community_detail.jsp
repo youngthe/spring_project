@@ -17,6 +17,14 @@
             <td>${community.title}</td>
         </tr>
         <tr><td></td><td>${community.content}</td></tr>
+        <tr><td>
+            <input type="button" value="수정하기" onclick="location.href='/community/modify/${community.id}'">
+        </td><td>
+            <input type="button" value="삭제하기" onclick="location.href='#'">
+        </td></tr>
+        <tr><td>
+            <input type="button" value="돌아가기" onclick="location.href='/community/'">
+        </td></tr>
     </table>
 </body>
 </html>

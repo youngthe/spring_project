@@ -14,8 +14,8 @@
 <table>
     <form name="form" action="/community/write" method="post">
         <tr>
-            <td>글 작성하기</td>
-        </tr>
+        <td>글 작성하기</td>
+    </tr>
         <tr>
             <td>제목</td>
             <td><input type = "text" name = "title" id="title"></td>
@@ -25,7 +25,7 @@
             <td><textarea name="content" id="content" rows="15" cols="33"></textarea></td>
         </tr>
         <tr>
-            <td><input type="button" value="돌아가기" onclick="location.href='/community'"></td><td><input type="submit" value = "작성완료"></td>
+            <td><input type="button" value="돌아가기" onclick="history.back()"></td><td><input type="submit" value = "작성완료"></td>
         </tr>
     </form>
 </table>
