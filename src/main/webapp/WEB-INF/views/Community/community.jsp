@@ -21,7 +21,7 @@
 <%--            </tr>--%>
 
 <%--        <tr>--%>
-<%--            <td><input type="button" onclick="location.href='/community/write'"  value="글 작성"></td>--%>
+<%--            <td--%>
 <%--        </tr>--%>
 <%--    </table>--%>
 </head>
@@ -65,26 +65,21 @@
                 <tr>
                     <td>${list.id}</td>
                     <th>
-<%--                    <td></td><td><a href=""></a></td><td>${list.writer}</td>&ndash;%&gt;--%>
                         <a href="/community/detail/${list.id}">${list.title}</a>
                     </th>
-                    <td>2017.07.13</td>
+                    <td>${list.date}</td>
                 </tr>
                 </c:forEach>
-
                 <tr>
-                    <td>2</td>
-                    <th><a href="#!">공지사항 안내입니다. 이용해주셔서 감사합니다</a></th>
-                    <td>2017.06.15</td>
-                </tr>
+                    <td></td>
+                    <th></th>
 
-                <tr>
-                    <td>1</td>
-                    <th><a href="#!">공지사항 안내입니다. 이용해주셔서 감사합니다</a></th>
-                    <td>2017.06.15</td>
                 </tr>
                 </tbody>
             </table>
+            <div class="m2">
+                <input type="button" class="btn btn-dark" onclick="location.href='/community/write'"  value="글 작성">
+            </div>
         </div>
     </div>
 

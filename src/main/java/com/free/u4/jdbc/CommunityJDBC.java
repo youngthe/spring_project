@@ -3,6 +3,7 @@ package com.free.u4.jdbc;
 import com.free.u4.domain.Community;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class CommunityJDBC {
@@ -32,7 +33,9 @@ public class CommunityJDBC {
     }
 
     public boolean Create_Community(String title, String content, String writer){
-        String sql = "insert into COMMUNITY ( title, content, writer) value ('"+title+"', '"+content+"' , '"+writer+"')";
+        LocalDate now = LocalDate.now();
+        String sql = "insert into COMMUNITY ( title, content, writer, Date) value ('"+title+"', '"+content+"' , '"+writer+"', '"+now+"')";
+        System.out.println(now);
         boolean result = SqlDeleteAndInsert(sql);
         return result;
     }
@@ -50,6 +53,7 @@ public class CommunityJDBC {
                 community.setTitle(rs.getString(2));
                 community.setContent(rs.getString(3));
                 community.setWriter(rs.getString(4));
+                community.setDate(rs.getString(5));
                 arraylist.add(community);
             }
             return arraylist;
