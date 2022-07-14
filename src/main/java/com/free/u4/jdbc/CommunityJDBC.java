@@ -42,7 +42,7 @@ public class CommunityJDBC {
 
     public ArrayList<Community> view_Community(){
         ArrayList<Community> arraylist = new ArrayList<>();
-        String sql = "select * from COMMUNITY";
+        String sql = "select * from COMMUNITY order by id DESC";
         try{
             Connection con = dbcon();
             Statement stmt = con.createStatement();

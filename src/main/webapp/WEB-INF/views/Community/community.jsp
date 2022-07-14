@@ -77,10 +77,11 @@
                 </tr>
                 </tbody>
             </table>
-            <div class="m2">
-                <input type="button" class="btn btn-dark" onclick="location.href='/community/write'"  value="글 작성">
-            </div>
+
         </div>
+    </div>
+    <div class="writer_btn">
+        <input type="button" class="btn btn-dark" onclick="location.href='/community/write'"  value="글 작성">
     </div>
 
 </section>
