@@ -10,6 +10,15 @@ public class Community {
     private String content;
     private String writer;
     private String date;
+    private int hits;
+
+    public int getHits() {
+        return hits;
+    }
+
+    public void setHits(int hits) {
+        this.hits = hits;
+    }
 
     public String getDate() {
         return date;

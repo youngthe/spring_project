@@ -3,6 +3,7 @@ package com.free.u4.controller;
 import com.free.u4.domain.Community;
 import com.free.u4.jdbc.CommunityJDBC;
 import com.free.u4.utils.ScriptUtils;
+import com.free.u4.utils.SessionCheckUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,8 +20,16 @@ import java.util.ArrayList;
 @Controller
 public class CommunityController {
 
+    SessionCheckUtils sessionCheck = new SessionCheckUtils();
     @RequestMapping(value = "/community")
     public String Community(Model model, HttpServletRequest request){
+
+        boolean result = sessionCheck.Check(request.getSession());
+        if(!result) {
+            return "Register/login";
+        }
+
+
         ArrayList<Community> arraylist = new ArrayList<Community>();
         CommunityJDBC jdbc = new CommunityJDBC();
         arraylist = jdbc.view_Community();
@@ -34,16 +43,21 @@ public class CommunityController {
     }
 
     @RequestMapping(value = "/community/write")
-    public String community_write(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException {
+    public String community_write(HttpServletRequest request, HttpServletResponse httpServletResponse) throws IOException {
 
-        if(httpServletRequest.getMethod().equals("POST")){
-            String title = httpServletRequest.getParameter("title");
-            String content = httpServletRequest.getParameter("content");
-            HttpSession session = httpServletRequest.getSession();
+        boolean result = sessionCheck.Check(request.getSession());
+        if(!result) {
+            return "Register/login";
+        }
+
+        if(request.getMethod().equals("POST")){
+            HttpSession session = request.getSession();
+            String title = request.getParameter("title");
+            String content = request.getParameter("content");
             String writer = (String)session.getAttribute("user");
             CommunityJDBC jdbc = new CommunityJDBC();
-            boolean result = jdbc.Create_Community(title, content, writer);
-            if(result){
+            boolean result_write = jdbc.Create_Community(title, content, writer);
+            if(result_write){
                 httpServletResponse.setContentType("/community");
                 ScriptUtils.alert_location(httpServletResponse, "글 작성이 완료되었습니다.", "/community");
                 return "";
@@ -57,7 +71,12 @@ public class CommunityController {
     }
 
     @RequestMapping(value = "/community/detail/{id}")
-    public String community_detail(@PathVariable int id, Model model) throws SQLException {
+    public String community_detail(@PathVariable int id, Model model, HttpServletRequest request) throws SQLException {
+
+        boolean result = sessionCheck.Check(request.getSession());
+        if(!result) {
+            return "Register/login";
+        }
 
         CommunityJDBC jdbc = new CommunityJDBC();
         Community community = jdbc.detail_Community(id);
@@ -68,22 +87,28 @@ public class CommunityController {
     }
 
     @RequestMapping(value = "/community/modify/{id}")
-    public String community_modify(@PathVariable int id, Model model, HttpServletRequest httpServletRequest,
+    public String community_modify(@PathVariable int id, Model model, HttpServletRequest request,
                                    HttpServletResponse httpServletResponse) throws SQLException, IOException {
+
+
+        boolean result = sessionCheck.Check(request.getSession());
+        if(!result) {
+            return "Register/login";
+        }
+
 
         CommunityJDBC jdbc = new CommunityJDBC();
         Community community = jdbc.detail_Community(id);
         model.addAttribute("community", community);
-        HttpSession session = httpServletRequest.getSession();
-
+        HttpSession session = request.getSession();
         if(!jdbc.get_Writer(id).equals(session.getAttribute("user"))){
             ScriptUtils.alert_back(httpServletResponse, "수정권한이 없습니다");
             return "";
         }
 
-        if(httpServletRequest.getMethod().equals("POST")){
-            String title = httpServletRequest.getParameter("title");
-            String content = httpServletRequest.getParameter("content");
+        if(request.getMethod().equals("POST")){
+            String title = request.getParameter("title");
+            String content = request.getParameter("content");
             jdbc.modify_Community(id, title, content);
             return "redirect:/community/detail/"+id;
         }
@@ -96,6 +121,11 @@ public class CommunityController {
             throws IOException, SQLException {
 
 
+        boolean result = sessionCheck.Check(request.getSession());
+        if(!result) {
+            return "Register/login";
+        }
+
         CommunityJDBC jdbc = new CommunityJDBC();
         Community community = jdbc.detail_Community(id);
         HttpSession session = request.getSession();
@@ -105,8 +135,8 @@ public class CommunityController {
         }
 
         jdbc = new CommunityJDBC();
-        boolean result = jdbc.delete_Community(id);
-        if(result)
+        boolean delete_result = jdbc.delete_Community(id);
+        if(delete_result)
             ScriptUtils.alert_location(response, "삭제되었습니다", "/community");
         else
             ScriptUtils.alert_back(response, "삭제할 수 없습니다.");

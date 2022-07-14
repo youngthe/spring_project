@@ -57,7 +57,9 @@
                 <tr>
                     <th scope="col" class="th-num">번호</th>
                     <th scope="col" class="th-title">제목</th>
+                    <th scope="col" class="th-date">작성자</th>
                     <th scope="col" class="th-date">등록일</th>
+                    <th scope="col" class="th-date">조회수</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -67,14 +69,16 @@
                     <th>
                         <a href="/community/detail/${list.id}">${list.title}</a>
                     </th>
+                    <td>${list.writer}</td>
                     <td>${list.date}</td>
+                    <td>${list.hits}</td>
                 </tr>
                 </c:forEach>
-                <tr>
-                    <td></td>
-                    <th></th>
+<%--                <tr>--%>
+<%--                    <td></td>--%>
+<%--                    <th></th>--%>
 
-                </tr>
+<%--                </tr>--%>
                 </tbody>
             </table>
 

@@ -28,14 +28,14 @@ public class CommunityJDBC {
             return true;
         }catch(Exception e){
             System.out.println("Sql Delete or Insert error");
+            System.out.println(e);
         }
         return false;
     }
 
     public boolean Create_Community(String title, String content, String writer){
         LocalDate now = LocalDate.now();
-        String sql = "insert into COMMUNITY ( title, content, writer, Date) value ('"+title+"', '"+content+"' , '"+writer+"', '"+now+"')";
-        System.out.println(now);
+        String sql = "insert into COMMUNITY ( title, content, writer, Date, hits) value ('"+title+"', '"+content+"' , '"+writer+"', '"+now+"', 0)";
         boolean result = SqlDeleteAndInsert(sql);
         return result;
     }
@@ -54,6 +54,7 @@ public class CommunityJDBC {
                 community.setContent(rs.getString(3));
                 community.setWriter(rs.getString(4));
                 community.setDate(rs.getString(5));
+                community.setHits(rs.getInt(6));
                 arraylist.add(community);
             }
             return arraylist;
@@ -68,7 +69,7 @@ public class CommunityJDBC {
     public Community detail_Community(int id) {
         String sql = "select * from COMMUNITY where id ='"+id+"'";
         Community community = new Community();
-
+        Increase_Community(id);
         try{
             Connection con = dbcon();
             Statement stmt = con.createStatement();
@@ -86,6 +87,20 @@ public class CommunityJDBC {
             System.out.println(e);
         }
         return community;
+    }
+
+    public boolean Increase_Community(int id){
+        String sql = "update community set  hits = hits+1 where id='"+id+"'";
+        try{
+            Connection con = dbcon();
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate(sql);
+            con.close();
+            return true;
+        }catch(Exception e){
+            System.out.println(e);
+            return false;
+        }
     }
 
     public boolean modify_Community(int id, String title, String content) throws SQLException{
@@ -120,11 +135,12 @@ public class CommunityJDBC {
         Connection con = dbcon();
         Statement stmt = con.createStatement();
         stmt.executeUpdate(sql);
+        con.close();
         return true;
     }
 
     public ArrayList<Community> Search_Community(String title){
-        String sql = "select * from community where title like '%"+title+"%'";
+        String sql = "select * from community where title like '%"+title+"%' order by id DESC";
         ArrayList<Community> arrayList = new ArrayList<Community>();
         try{
             Connection con = dbcon();
@@ -135,9 +151,12 @@ public class CommunityJDBC {
                 community.setID(rs.getInt(1));
                 community.setTitle(rs.getString(2));
                 community.setContent(rs.getString(3));
+                community.setWriter(rs.getString(4));
                 community.setDate(rs.getString(5));
+                community.setHits(rs.getInt(6));
                 arrayList.add(community);
             }
+            con.close();
 
         }catch (Exception e){
             System.out.println(e);
