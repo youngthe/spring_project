@@ -115,11 +115,33 @@ public class CommunityJDBC {
         return writer;
     }
 
-    public boolean delete_community(int id) throws SQLException{
+    public boolean delete_Community(int id) throws SQLException{
         String sql = "delete from community where id = '"+id+"'";
         Connection con = dbcon();
         Statement stmt = con.createStatement();
         stmt.executeUpdate(sql);
         return true;
+    }
+
+    public ArrayList<Community> Search_Community(String title){
+        String sql = "select * from community where title like '%"+title+"%'";
+        ArrayList<Community> arrayList = new ArrayList<Community>();
+        try{
+            Connection con = dbcon();
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                Community community = new Community();
+                community.setID(rs.getInt(1));
+                community.setTitle(rs.getString(2));
+                community.setContent(rs.getString(3));
+                community.setDate(rs.getString(5));
+                arrayList.add(community);
+            }
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return arrayList;
     }
 }

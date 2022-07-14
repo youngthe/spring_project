@@ -20,15 +20,18 @@ import java.util.ArrayList;
 public class CommunityController {
 
     @RequestMapping(value = "/community")
-    public String community(Model model){
+    public String Community(Model model, HttpServletRequest request){
         ArrayList<Community> arraylist = new ArrayList<Community>();
         CommunityJDBC jdbc = new CommunityJDBC();
         arraylist = jdbc.view_Community();
-
+        if(request.getParameter("search") != null){
+            arraylist = jdbc.Search_Community(request.getParameter("search"));
+            model.addAttribute("community_list", arraylist);
+            return "Community/community";
+        }
         model.addAttribute("community_list", arraylist);
         return "Community/community";
     }
-
 
     @RequestMapping(value = "/community/write")
     public String community_write(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException {
@@ -102,7 +105,7 @@ public class CommunityController {
         }
 
         jdbc = new CommunityJDBC();
-        boolean result = jdbc.delete_community(id);
+        boolean result = jdbc.delete_Community(id);
         if(result)
             ScriptUtils.alert_location(response, "삭제되었습니다", "/community");
         else
