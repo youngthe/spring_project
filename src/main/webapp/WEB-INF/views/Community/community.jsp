@@ -11,19 +11,7 @@
 <html>
 <head>
     <title>커뮤니티 페이지</title>
-    <link href="${path}/resources/css/main.css" rel="stylesheet"/>
-    ${path}
-<%--    <table>--%>
-<%--        <tr><td>번호</td><td>제목</td><td>작성자</td></tr>--%>
-<%--        <c:forEach var="list" items="${community_list}" varStatus="status">--%>
-<%--            <tr>--%>
-<%--                <td>${list.id}</td><td><a href="/community/detail/${list.id}">${list.title}</a></td><td>${list.writer}</td>--%>
-<%--            </tr>--%>
-
-<%--        <tr>--%>
-<%--            <td--%>
-<%--        </tr>--%>
-<%--    </table>--%>
+    <link href="${path}/resources/css/community_main.css" rel="stylesheet"/>
 </head>
 <body>
 
@@ -65,6 +53,7 @@
                 <tbody>
                 <c:forEach var="list" items="${community_list}" varStatus="status">
                 <tr>
+
                     <td>${list.id}</td>
                     <th>
                         <a href="/community/detail/${list.id}">${list.title}</a>

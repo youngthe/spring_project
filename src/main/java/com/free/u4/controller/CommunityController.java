@@ -1,5 +1,6 @@
 package com.free.u4.controller;
 
+import com.free.u4.domain.Comment;
 import com.free.u4.domain.Community;
 import com.free.u4.jdbc.CommunityJDBC;
 import com.free.u4.utils.ScriptUtils;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Array;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -24,8 +26,8 @@ public class CommunityController {
     @RequestMapping(value = "/community")
     public String Community(Model model, HttpServletRequest request){
 
-        boolean result = sessionCheck.Check(request.getSession());
-        if(!result) {
+        boolean session_check = sessionCheck.Check(request.getSession());
+        if(!session_check) {
             return "Register/login";
         }
 
@@ -45,8 +47,8 @@ public class CommunityController {
     @RequestMapping(value = "/community/write")
     public String community_write(HttpServletRequest request, HttpServletResponse httpServletResponse) throws IOException {
 
-        boolean result = sessionCheck.Check(request.getSession());
-        if(!result) {
+        boolean session_check = sessionCheck.Check(request.getSession());
+        if(!session_check) {
             return "Register/login";
         }
 
@@ -73,16 +75,17 @@ public class CommunityController {
     @RequestMapping(value = "/community/detail/{id}")
     public String community_detail(@PathVariable int id, Model model, HttpServletRequest request) throws SQLException {
 
-        boolean result = sessionCheck.Check(request.getSession());
-        if(!result) {
+        ArrayList<Comment> comments = new ArrayList<Comment>();
+        boolean session_check = sessionCheck.Check(request.getSession());
+        if(!session_check) {
             return "Register/login";
         }
 
         CommunityJDBC jdbc = new CommunityJDBC();
         Community community = jdbc.detail_Community(id);
-
+        comments = jdbc.get_Comments(id);
         model.addAttribute("community", community);
-
+        model.addAttribute("comments", comments);
         return "Community/community_detail";
     }
 
@@ -91,8 +94,8 @@ public class CommunityController {
                                    HttpServletResponse httpServletResponse) throws SQLException, IOException {
 
 
-        boolean result = sessionCheck.Check(request.getSession());
-        if(!result) {
+        boolean session_check = sessionCheck.Check(request.getSession());
+        if(!session_check) {
             return "Register/login";
         }
 
@@ -121,8 +124,8 @@ public class CommunityController {
             throws IOException, SQLException {
 
 
-        boolean result = sessionCheck.Check(request.getSession());
-        if(!result) {
+        boolean session_check = sessionCheck.Check(request.getSession());
+        if(!session_check) {
             return "Register/login";
         }
 
@@ -142,5 +145,25 @@ public class CommunityController {
             ScriptUtils.alert_back(response, "삭제할 수 없습니다.");
 
         return "redirect:/community";
+    }
+
+    @RequestMapping(value="/community/comments/{id}")
+    public String comments(@PathVariable int id, HttpServletRequest request){
+
+
+        boolean session_check = sessionCheck.Check(request.getSession());
+        if(!session_check) {
+            return "Register/login";
+        }
+
+        String comment = request.getParameter("comments");
+        HttpSession session = request.getSession();
+        String writer = (String)session.getAttribute("user");
+
+        CommunityJDBC jdbc = new CommunityJDBC();
+        jdbc.set_Comments(id, comment, writer);
+        System.out.println(comment);
+
+        return "redirect:/community/detail/"+id;
     }
 }

@@ -1,5 +1,6 @@
 package com.free.u4.jdbc;
 
+import com.free.u4.domain.Comment;
 import com.free.u4.domain.Community;
 
 import java.sql.*;
@@ -78,6 +79,9 @@ public class CommunityJDBC {
                 community.setID(rs.getInt(1));
                 community.setTitle(rs.getString(2));
                 community.setContent(rs.getString(3));
+                community.setWriter(rs.getString(4));
+                community.setDate(rs.getString(5));
+                community.setHits(rs.getInt(6));
             }else{
                 System.out.println("don't exist Community");
             }
@@ -162,5 +166,42 @@ public class CommunityJDBC {
             System.out.println(e);
         }
         return arrayList;
+    }
+
+    public void set_Comments(int community_id, String comment, String writer){
+        LocalDate date = LocalDate.now();
+        String sql = "insert into comments (community_id, comment, writer, date) " +
+                "value ('"+community_id+"', '"+comment+"', '"+writer+"', '"+date+"')";
+        try{
+            Connection con = dbcon();
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate(sql);
+            con.close();
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+
+    public ArrayList<Comment> get_Comments(int community_id){
+        String sql = "select * from comments where community_id = '"+community_id+"'";
+        ArrayList<Comment> comments = new ArrayList<>();
+
+        try{
+            Connection con = dbcon();
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                Comment comment = new Comment();
+                comment.setComment(rs.getString(3));
+                comment.setWriter(rs.getString(4));
+                comment.setDate(rs.getString(5));
+                comments.add(comment);
+            }
+
+        }catch(Exception e){
+            System.out.println(e);
+        }
+
+        return comments;
     }
 }

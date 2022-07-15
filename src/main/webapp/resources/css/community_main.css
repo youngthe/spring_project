@@ -175,3 +175,13 @@ section.notice {
     width: 1px;
     height: 1px;
 }
+
+.bottom{
+    display: flex;
+    justify-content: right;
+}
+
+.bottom input{
+    margin-top: 10px;
+    margin-right: 10px;
+}
