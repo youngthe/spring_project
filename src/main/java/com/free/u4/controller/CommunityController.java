@@ -7,12 +7,17 @@ import com.free.u4.utils.ScriptUtils;
 import com.free.u4.utils.SessionCheckUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
 import java.sql.Array;
 import java.sql.SQLException;
@@ -57,6 +62,7 @@ public class CommunityController {
             String title = request.getParameter("title");
             String content = request.getParameter("content");
             String writer = (String)session.getAttribute("user");
+
             CommunityJDBC jdbc = new CommunityJDBC();
             boolean result_write = jdbc.Create_Community(title, content, writer);
             if(result_write){
@@ -71,6 +77,19 @@ public class CommunityController {
 
         return "Community/community_write";
     }
+
+    @RequestMapping(value = "/community/write/upload", method = RequestMethod.POST)
+    public String community_write(@RequestParam("file") MultipartFile file) throws IOException {
+
+
+        String file_name = file.getOriginalFilename();
+        String file_path = "C:\\spring_project\\src\\main\\webapp\\WEB-INF\\file";
+        File target = new File(file_path, file_name);
+        FileCopyUtils.copy(file.getBytes(), target);
+
+        return "Community/community";
+    }
+
 
     @RequestMapping(value = "/community/detail/{id}")
     public String community_detail(@PathVariable int id, Model model, HttpServletRequest request) throws SQLException {
@@ -89,7 +108,7 @@ public class CommunityController {
         return "Community/community_detail";
     }
 
-    @RequestMapping(value = "/community/modify/{id}")
+    @RequestMapping(value = "/community/modify/{Community_id}")
     public String community_modify(@PathVariable int Community_id, Model model, HttpServletRequest request,
                                    HttpServletResponse httpServletResponse) throws SQLException, IOException {
 
@@ -168,7 +187,8 @@ public class CommunityController {
     }
 
     @RequestMapping(value="/community/comment/delete/{comment_id}")
-    public String comment_delete(@PathVariable int comment_id, HttpServletResponse response, HttpServletRequest request) throws IOException {
+    public String comment_delete(@PathVariable int comment_id,
+                                 HttpServletResponse response, HttpServletRequest request) throws IOException {
 
         CommunityJDBC jdbc = new CommunityJDBC();
 
