@@ -117,8 +117,8 @@ public class CommunityJDBC {
         return true;
     }
 
-    public String get_Writer(int id){
-        String sql = "select writer from COMMUNITY where id='"+id+"'";
+    public String get_Community_Writer(int Community_id){
+        String sql = "select writer from COMMUNITY where id='"+Community_id+"'";
         String writer = null;
 
         try{
@@ -133,6 +133,26 @@ public class CommunityJDBC {
         }
         return writer;
     }
+
+    public String get_Comment_Writer(int Comment_id){
+
+        String sql = "select writer from comments where id='"+Comment_id+"'";
+        String comment_writer = null;
+
+        try{
+            Connection con = dbcon();
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            if(rs.next()){
+                comment_writer = rs.getString(1);
+            }
+        }catch(Exception e){
+            System.out.println(e);
+        }
+
+        return comment_writer;
+    }
+
 
     public boolean delete_Community(int id) throws SQLException{
         String sql = "delete from community where id = '"+id+"'";
@@ -192,6 +212,7 @@ public class CommunityJDBC {
             ResultSet rs = stmt.executeQuery(sql);
             while(rs.next()){
                 Comment comment = new Comment();
+                comment.setId(rs.getInt(1));
                 comment.setComment(rs.getString(3));
                 comment.setWriter(rs.getString(4));
                 comment.setDate(rs.getString(5));
@@ -203,5 +224,21 @@ public class CommunityJDBC {
         }
 
         return comments;
+    }
+
+    public void delete_comment(int comment_id){
+        String sql = "delete from comments where id ='"+comment_id+"'";
+
+        try{
+            Connection con = dbcon();
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate(sql);
+            con.close();
+        }catch(Exception e){
+
+            System.out.println(e);
+        }
+
+
     }
 }

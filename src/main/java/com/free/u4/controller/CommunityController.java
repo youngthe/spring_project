@@ -90,7 +90,7 @@ public class CommunityController {
     }
 
     @RequestMapping(value = "/community/modify/{id}")
-    public String community_modify(@PathVariable int id, Model model, HttpServletRequest request,
+    public String community_modify(@PathVariable int Community_id, Model model, HttpServletRequest request,
                                    HttpServletResponse httpServletResponse) throws SQLException, IOException {
 
 
@@ -101,10 +101,10 @@ public class CommunityController {
 
 
         CommunityJDBC jdbc = new CommunityJDBC();
-        Community community = jdbc.detail_Community(id);
+        Community community = jdbc.detail_Community(Community_id);
         model.addAttribute("community", community);
         HttpSession session = request.getSession();
-        if(!jdbc.get_Writer(id).equals(session.getAttribute("user"))){
+        if(!jdbc.get_Community_Writer(Community_id).equals(session.getAttribute("user"))){
             ScriptUtils.alert_back(httpServletResponse, "수정권한이 없습니다");
             return "";
         }
@@ -112,15 +112,15 @@ public class CommunityController {
         if(request.getMethod().equals("POST")){
             String title = request.getParameter("title");
             String content = request.getParameter("content");
-            jdbc.modify_Community(id, title, content);
-            return "redirect:/community/detail/"+id;
+            jdbc.modify_Community(Community_id, title, content);
+            return "redirect:/community/detail/"+Community_id;
         }
         return "Community/community_modify";
 
     }
 
-    @RequestMapping(value = "/community/delete/{id}")
-    public String Community_Delete(@PathVariable int id, HttpServletRequest request, HttpServletResponse response)
+    @RequestMapping(value = "/community/delete/{Community_id}")
+    public String Community_Delete(@PathVariable int Community_id, HttpServletRequest request, HttpServletResponse response)
             throws IOException, SQLException {
 
 
@@ -130,15 +130,15 @@ public class CommunityController {
         }
 
         CommunityJDBC jdbc = new CommunityJDBC();
-        Community community = jdbc.detail_Community(id);
+        Community community = jdbc.detail_Community(Community_id);
         HttpSession session = request.getSession();
-        if(!jdbc.get_Writer(id).equals(session.getAttribute("user"))){
+        if(!jdbc.get_Community_Writer(Community_id).equals(session.getAttribute("user"))){
             ScriptUtils.alert_back(response, "삭제권한이 없습니다.");
             return "";
         }
 
         jdbc = new CommunityJDBC();
-        boolean delete_result = jdbc.delete_Community(id);
+        boolean delete_result = jdbc.delete_Community(Community_id);
         if(delete_result)
             ScriptUtils.alert_location(response, "삭제되었습니다", "/community");
         else
@@ -165,5 +165,22 @@ public class CommunityController {
         System.out.println(comment);
 
         return "redirect:/community/detail/"+id;
+    }
+
+    @RequestMapping(value="/community/comment/delete/{comment_id}")
+    public String comment_delete(@PathVariable int comment_id, HttpServletResponse response, HttpServletRequest request) throws IOException {
+
+        CommunityJDBC jdbc = new CommunityJDBC();
+
+        HttpSession session = request.getSession();
+        if(!jdbc.get_Comment_Writer(comment_id).equals(session.getAttribute("user"))){
+            ScriptUtils.alert_back(response, "삭제권한이 없습니다.");
+            return "";
+        }
+
+        jdbc.delete_comment(comment_id);
+
+        ScriptUtils.alert_location(response, "삭제 완료","/community");
+        return "redirect:/community";
     }
 }

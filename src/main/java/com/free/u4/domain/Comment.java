@@ -11,6 +11,14 @@ public class Comment {
     private String writer;
     private String date;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getCommunity_id() {
         return community_id;
     }
