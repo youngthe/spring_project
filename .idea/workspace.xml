@@ -7,13 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86ebff3d-bf88-40c5-9822-c311df042d5b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/community_write.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/spring_project_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/spring_project_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Register/resources/image/test.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/controller/CommunityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/controller/CommunityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/domain/Community.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/domain/Community.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/free/u4/jdbc/CommunityJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/free/u4/jdbc/CommunityJDBC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/dispatcher-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Community/community_write.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Community/community_write.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Community/community_detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Community/community_detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Register/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/Register/main.jsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +69,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/resources/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/resources/image" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -83,15 +84,16 @@
     <property name="settings.editor.selected.configurable" value="Docker" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\spring_project\src\main\webapp\resources\image" />
+      <recent name="C:\spring_project\src\main\webapp\resources\css" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\spring_project\src\main\webapp\WEB-INF\views\Register\resources" />
       <recent name="C:\spring_project\src\main\webapp\resources" />
       <recent name="C:\spring_project\src\main\webapp\WEB-INF\resources\css" />
       <recent name="C:\spring_project\src\main\webapp\WEB-INF\views" />
       <recent name="C:\spring_project\src\main\webapp\WEB-INF\views\Register\community" />
-      <recent name="C:\spring_project\src\main\webapp\WEB-INF\views\member" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\spring_project\src\main\webapp\resources\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -235,7 +237,7 @@
       <workItem from="1657764438298" duration="296000" />
       <workItem from="1657777408366" duration="15117000" />
       <workItem from="1657876631561" duration="21074000" />
-      <workItem from="1657965434714" duration="3179000" />
+      <workItem from="1657965434714" duration="16457000" />
     </task>
     <task id="LOCAL-00001" summary="dbConnect">
       <created>1657357009220</created>
@@ -377,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657951944541</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="add : file upload function in Community">
+      <created>1657974122283</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1657974122283</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,6 +437,7 @@
     <MESSAGE value="add : session check" />
     <MESSAGE value="add : comments function add in community" />
     <MESSAGE value="add : comments delete function add in community" />
-    <option name="LAST_COMMIT_MESSAGE" value="add : comments delete function add in community" />
+    <MESSAGE value="add : file upload function in Community" />
+    <option name="LAST_COMMIT_MESSAGE" value="add : file upload function in Community" />
   </component>
 </project>

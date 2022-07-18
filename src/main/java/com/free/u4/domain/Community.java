@@ -8,9 +8,19 @@ public class Community {
     private int id;
     private String title;
     private String content;
+    private String file_name;
     private String writer;
     private String date;
     private int hits;
+
+
+    public String getFile_name() {
+        return file_name;
+    }
+
+    public void setFile_name(String file_name) {
+        this.file_name = file_name;
+    }
 
     public int getHits() {
         return hits;

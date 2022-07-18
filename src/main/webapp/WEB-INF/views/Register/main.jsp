@@ -27,5 +27,9 @@
     <input type="submit" value = "로그아웃">
 
 </form>
+<img src=${pageContext.request.contextPath}"/resources/image/test.jpg">
+
 </body>
 </html>
+
+

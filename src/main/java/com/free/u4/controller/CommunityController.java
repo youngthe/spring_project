@@ -57,35 +57,37 @@ public class CommunityController {
             return "Register/login";
         }
 
-        if(request.getMethod().equals("POST")){
-            HttpSession session = request.getSession();
-            String title = request.getParameter("title");
-            String content = request.getParameter("content");
-            String writer = (String)session.getAttribute("user");
 
-            CommunityJDBC jdbc = new CommunityJDBC();
-            boolean result_write = jdbc.Create_Community(title, content, writer);
-            if(result_write){
-                httpServletResponse.setContentType("/community");
-                ScriptUtils.alert_location(httpServletResponse, "글 작성이 완료되었습니다.", "/community");
-                return "";
-            }
-            else
-                ScriptUtils.alert_back(httpServletResponse, "글 작성 실패하였습니다.");
-
-        }
 
         return "Community/community_write";
     }
 
     @RequestMapping(value = "/community/write/upload", method = RequestMethod.POST)
-    public String community_write(@RequestParam("file") MultipartFile file) throws IOException {
+    public String community_write(@RequestParam("file") MultipartFile file, HttpServletResponse response, HttpServletRequest request) throws IOException {
 
 
+        //업로드 된 파일 저장
         String file_name = file.getOriginalFilename();
         String file_path = "C:\\spring_project\\src\\main\\webapp\\WEB-INF\\file";
         File target = new File(file_path, file_name);
         FileCopyUtils.copy(file.getBytes(), target);
+
+
+        HttpSession session = request.getSession();
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
+        String writer = (String)session.getAttribute("user");
+        CommunityJDBC jdbc = new CommunityJDBC();
+        boolean result_write = jdbc.Create_Community(title, content, writer, file_name);
+
+        if(result_write){
+            response.setContentType("/community");
+            ScriptUtils.alert_location(response, "글 작성이 완료되었습니다.", "/community");
+            return "";
+        }
+        else
+            ScriptUtils.alert_back(response, "글 작성 실패하였습니다.");
+
 
         return "Community/community";
     }
@@ -202,5 +204,11 @@ public class CommunityController {
 
         ScriptUtils.alert_location(response, "삭제 완료","/community");
         return "redirect:/community";
+    }
+
+    @RequestMapping(value="/community/download/{file_name}")
+    public void file_download(@PathVariable String file_name){
+
+
     }
 }

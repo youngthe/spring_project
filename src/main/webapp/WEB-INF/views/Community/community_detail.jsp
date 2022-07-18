@@ -28,7 +28,7 @@
                 <th>작성시간</th><td>${community.date}</td>
             </tr>
             <tr>
-                <th>제목</th><td colspan="3">${community.title}</td>
+                <th>제목</th><td>${community.title}</td><th>파일</th><td><a location.href="/community/">${community.file_name}</a></td>
             </tr>
             <tr>
                 <td colspan="4">${community.content}</td>
@@ -40,12 +40,17 @@
             <input type="button" id="bt2" value="삭제하기" onclick="location.href='/community/delete/${community.id}'">
             <input type="button" id="bt3" value="돌아가기" onclick="location.href='/community/'">
         </div>
+
+
+
+
         <div class="input_comment">
             <form action="/community/comments/${community.id}" method="post">
                 <input type="text" name="comments">
                 <input type="submit" value="작성">
             </form>
         </div>
+
         <div class="view_comments">
             <table class="table_comments">
 

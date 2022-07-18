@@ -34,9 +34,9 @@ public class CommunityJDBC {
         return false;
     }
 
-    public boolean Create_Community(String title, String content, String writer){
+    public boolean Create_Community(String title, String content, String writer, String file_name){
         LocalDate now = LocalDate.now();
-        String sql = "insert into COMMUNITY ( title, content, writer, Date, hits) value ('"+title+"', '"+content+"' , '"+writer+"', '"+now+"', 0)";
+        String sql = "insert into COMMUNITY ( title, content,file_name , writer, Date, hits) value ('"+title+"', '"+content+"' , '"+file_name+"', '"+writer+"', '"+now+"', 0)";
         boolean result = SqlDeleteAndInsert(sql);
         return result;
     }
@@ -53,9 +53,10 @@ public class CommunityJDBC {
                 community.setID(rs.getInt(1));
                 community.setTitle(rs.getString(2));
                 community.setContent(rs.getString(3));
-                community.setWriter(rs.getString(4));
-                community.setDate(rs.getString(5));
-                community.setHits(rs.getInt(6));
+                community.setFile_name(rs.getString(4));
+                community.setWriter(rs.getString(5));
+                community.setDate(rs.getString(6));
+                community.setHits(rs.getInt(7));
                 arraylist.add(community);
             }
             return arraylist;
@@ -79,9 +80,10 @@ public class CommunityJDBC {
                 community.setID(rs.getInt(1));
                 community.setTitle(rs.getString(2));
                 community.setContent(rs.getString(3));
-                community.setWriter(rs.getString(4));
-                community.setDate(rs.getString(5));
-                community.setHits(rs.getInt(6));
+                community.setFile_name(rs.getString(4));
+                community.setWriter(rs.getString(5));
+                community.setDate(rs.getString(6));
+                community.setHits(rs.getInt(7));
             }else{
                 System.out.println("don't exist Community");
             }
@@ -175,9 +177,10 @@ public class CommunityJDBC {
                 community.setID(rs.getInt(1));
                 community.setTitle(rs.getString(2));
                 community.setContent(rs.getString(3));
-                community.setWriter(rs.getString(4));
-                community.setDate(rs.getString(5));
-                community.setHits(rs.getInt(6));
+                community.setFile_name(rs.getString(4));
+                community.setWriter(rs.getString(5));
+                community.setDate(rs.getString(6));
+                community.setHits(rs.getInt(7));
                 arrayList.add(community);
             }
             con.close();
